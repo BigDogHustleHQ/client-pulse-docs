@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-05-21T00:00:00.000Z" agent="Claude" version="21.0.0" type="device">
+  <diagram id="vendrr-arch" name="VENDRR Architecture">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="VENDRR — System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="15" width="900" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Subtitle -->
+        <mxCell id="subtitle" value="Grouped by Deployment Boundary" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="50" width="900" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="leg-vercel" value="&#x25a1; Vercel" style="text;html=1;strokeColor=#0066CC;fillColor=#EBF5FF;fontSize=11;align=center;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="935" y="15" width="75" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-railway" value="&#x25a1; Railway" style="text;html=1;strokeColor=#FF8C00;fillColor=#FFF3E0;fontSize=11;align=center;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="15" width="75" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-db" value="&#x25a1; Managed DB" style="text;html=1;strokeColor=#555555;fillColor=#F5F5F5;dashed=1;fontSize=11;align=center;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1105" y="15" width="100" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-3p" value="&#x25a1; 3rd-party" style="text;html=1;strokeColor=#FF8C00;fillColor=#FFF3E0;dashed=1;fontSize=11;align=center;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1215" y="15" width="85" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             VERCEL CONTAINER
+             ═══════════════════════════════════════════════════════════ -->
+        <mxCell id="vercel" value="&lt;b&gt;VERCEL · one Next.js deployment&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#0066CC;fillColor=#EBF5FF;strokeWidth=2;verticalAlign=top;align=left;fontSize=13;fontColor=#0066CC;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="20" y="82" width="1030" height="308" as="geometry" />
+        </mxCell>
+
+        <!-- Next.js Frontend -->
+        <mxCell id="frontend" value="&lt;b style='font-size:16px'&gt;Next.js Frontend&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;React SSR · browser UI&lt;br/&gt;&lt;br/&gt;app/ directory · client + server" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;strokeWidth=2;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="48" y="118" width="298" height="248" as="geometry" />
+        </mxCell>
+
+        <!-- API Server -->
+        <mxCell id="apiserver" value="&lt;b style='font-size:16px'&gt;API Server&lt;/b&gt;&lt;br/&gt;Next.js API routes · serverless functions" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;strokeWidth=2;verticalAlign=top;fontSize=12;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="572" y="118" width="452" height="248" as="geometry" />
+        </mxCell>
+
+        <!-- AI Agent — inside API Server -->
+        <mxCell id="aiagent" value="&lt;b&gt;AI Agent — Anthropic SDK&lt;/b&gt;&lt;br/&gt;library import · not a separate service" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#CC8800;fillColor=#FFE082;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="590" y="280" width="416" height="62" as="geometry" />
+        </mxCell>
+
+        <!-- REST / GraphQL bidirectional arrow -->
+        <mxCell id="e-rest" value="REST / GraphQL" style="edgeStyle=none;html=1;fontSize=11;endArrow=block;endFill=1;startArrow=block;startFill=1;" edge="1" source="frontend" target="apiserver" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             RAILWAY CONTAINER
+             ═══════════════════════════════════════════════════════════ -->
+        <mxCell id="railway" value="&lt;b style='color:#CC6600'&gt;RAILWAY · deployed as 1 Node.js backend service&lt;/b&gt;&lt;br/&gt;&lt;i style='font-size:11px;color:#CC6600'&gt;3 modules in one process to start (cheap, simple). Split into separate Railway services later if one outgrows the others.&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#FF8C00;fillColor=#FFF3E0;strokeWidth=2;verticalAlign=top;align=left;fontSize=12;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="20" y="445" width="1030" height="368" as="geometry" />
+        </mxCell>
+
+        <!-- Backend Service inner container -->
+        <mxCell id="backend-svc" value="&lt;b style='color:#CC6600'&gt;Backend Service · single Node.js process on Railway&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FF8C00;fillColor=#FFF8F0;strokeWidth=2;verticalAlign=top;align=left;fontSize=11;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="38" y="510" width="995" height="288" as="geometry" />
+        </mxCell>
+
+        <!-- WebSocket -->
+        <mxCell id="websocket" value="&lt;b style='color:#8E44AD;font-size:14px'&gt;WebSocket&lt;/b&gt;&lt;br/&gt;Real-time updates&lt;br/&gt;&lt;br/&gt;Socket.io · ws library&lt;br/&gt;or buy: Pusher · Ably" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#8E44AD;fillColor=#FFFFFF;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="58" y="548" width="282" height="232" as="geometry" />
+        </mxCell>
+
+        <!-- Workflow Engine -->
+        <mxCell id="workflow" value="&lt;b style='color:#27AE60;font-size:14px'&gt;Workflow Engine&lt;/b&gt;&lt;br/&gt;DAG · triggers · cron&lt;br/&gt;&lt;br/&gt;BullMQ · node-cron&lt;br/&gt;or buy: Inngest · Trigger.dev" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#27AE60;fillColor=#FFFFFF;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="388" y="548" width="282" height="232" as="geometry" />
+        </mxCell>
+
+        <!-- Integration Hub -->
+        <mxCell id="integration" value="&lt;b style='color:#17A589;font-size:14px'&gt;Integration Hub&lt;/b&gt;&lt;br/&gt;OAuth · webhooks · sync&lt;br/&gt;&lt;br/&gt;Express + adapters&lt;br/&gt;or buy: Nango · Paragon" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#17A589;fillColor=#FFFFFF;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="718" y="548" width="292" height="232" as="geometry" />
+        </mxCell>
+
+        <!-- Workflow Engine → Integration Hub -->
+        <mxCell id="e-wf-int" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;" edge="1" source="workflow" target="integration" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             3rd-PARTY CONTAINER
+             ═══════════════════════════════════════════════════════════ -->
+        <mxCell id="thirdparty" value="&lt;b style='color:#CC6600'&gt;3rd-PARTY&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#FF8C00;fillColor=#FFF3E0;strokeWidth=2;verticalAlign=top;align=left;fontSize=13;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="445" width="288" height="368" as="geometry" />
+        </mxCell>
+
+        <!-- External APIs ellipse -->
+        <mxCell id="ext-apis" value="&lt;b style='color:#E67E22;font-size:14px'&gt;External APIs&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;OpenTable · Resy&lt;br/&gt;Square · Toast&lt;br/&gt;Twilio · Google · Yelp&lt;br/&gt;Instagram · TikTok" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#E67E22;fillColor=#FFFFFF;strokeWidth=3;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1084" y="482" width="260" height="258" as="geometry" />
+        </mxCell>
+
+        <!-- "you hold the API keys" note -->
+        <mxCell id="infra-note" value="you hold the API keys&lt;br/&gt;they handle the infra" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#888888;" vertex="1" parent="1">
+          <mxGeometry x="1084" y="752" width="260" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             INTER-SECTION ARROWS (Vercel → Railway)
+             ═══════════════════════════════════════════════════════════ -->
+
+        <!-- real-time: Frontend → WebSocket -->
+        <mxCell id="e-realtime" value="real-time" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="frontend" target="websocket" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- trigger / execute: API Server → Workflow Engine -->
+        <mxCell id="e-trigger" value="trigger / execute" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="apiserver" target="workflow" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 3rd-party calls: API Server → Integration Hub -->
+        <mxCell id="e-3pcalls" value="3rd-party calls" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=11;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="apiserver" target="integration" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- webhooks: Integration Hub → External APIs -->
+        <mxCell id="e-webhooks" value="webhooks" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=11;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="integration" target="ext-apis" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             MANAGED DATA CONTAINER
+             ═══════════════════════════════════════════════════════════ -->
+        <mxCell id="managed-data" value="&lt;b&gt;MANAGED DATA · provisioned, not deployed · connect via URL&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#555555;fillColor=#F5F5F5;strokeWidth=2;verticalAlign=top;align=left;fontSize=12;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="20" y="858" width="1030" height="305" as="geometry" />
+        </mxCell>
+
+        <!-- PostgreSQL cylinder -->
+        <mxCell id="postgres" value="&lt;b style='color:#2E86C1;font-size:15px'&gt;PostgreSQL&lt;/b&gt;&lt;br/&gt;Primary database&lt;br/&gt;&lt;br/&gt;tenant data&lt;br/&gt;audit logs&lt;br/&gt;&lt;br/&gt;Supabase · Neon" style="shape=cylinder3;whiteSpace=wrap;html=1;strokeColor=#2E86C1;fillColor=#FFFFFF;strokeWidth=2;fontSize=12;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="72" y="895" width="218" height="242" as="geometry" />
+        </mxCell>
+
+        <!-- Redis cylinder -->
+        <mxCell id="redis" value="&lt;b style='color:#E91E8C;font-size:15px'&gt;Redis&lt;/b&gt;&lt;br/&gt;Cache / real-time&lt;br/&gt;&lt;br/&gt;sessions&lt;br/&gt;pub-sub channels&lt;br/&gt;&lt;br/&gt;Upstash" style="shape=cylinder3;whiteSpace=wrap;html=1;strokeColor=#E91E8C;fillColor=#FFFFFF;strokeWidth=2;fontSize=12;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="398" y="895" width="218" height="242" as="geometry" />
+        </mxCell>
+
+        <!-- S3 cylinder -->
+        <mxCell id="s3" value="&lt;b style='color:#27AE60;font-size:15px'&gt;S3&lt;/b&gt;&lt;br/&gt;Blob storage&lt;br/&gt;&lt;br/&gt;media uploads&lt;br/&gt;generated sites&lt;br/&gt;&lt;br/&gt;AWS S3 · Cloudflare R2" style="shape=cylinder3;whiteSpace=wrap;html=1;strokeColor=#27AE60;fillColor=#FFFFFF;strokeWidth=2;fontSize=12;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="724" y="895" width="218" height="242" as="geometry" />
+        </mxCell>
+
+        <!-- all services read / write arrows (Railway modules → databases) -->
+        <mxCell id="e-rw-ws-pg" value="all services read / write" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="websocket" target="postgres" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-rw-wf-rd" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="workflow" target="redis" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-rw-int-s3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="integration" target="s3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Footer -->
+        <mxCell id="footer" value="VENDRR Architecture v1.2 · Deployment Topology · CTO Overview" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#888888;" vertex="1" parent="1">
+          <mxGeometry x="200" y="1178" width="900" height="25" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
