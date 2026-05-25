@@ -138,7 +138,7 @@
         </mxCell>
 
         <!-- PostgreSQL cylinder -->
-        <mxCell id="postgres" value="&lt;b style='color:#2E86C1;font-size:15px'&gt;PostgreSQL&lt;/b&gt;&lt;br/&gt;Primary database&lt;br/&gt;&lt;br/&gt;tenant data&lt;br/&gt;audit logs&lt;br/&gt;&lt;br/&gt;Supabase · Neon" style="shape=cylinder3;whiteSpace=wrap;html=1;strokeColor=#2E86C1;fillColor=#FFFFFF;strokeWidth=2;fontSize=12;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+        <mxCell id="postgres" value="&lt;b style='color:#2E86C1;font-size:15px'&gt;Supabase&lt;/b&gt;&lt;br/&gt;Primary database&lt;br/&gt;&lt;br/&gt;tenant data&lt;br/&gt;audit logs&lt;br/&gt;&lt;br/&gt;PostgreSQL" style="shape=cylinder3;whiteSpace=wrap;html=1;strokeColor=#2E86C1;fillColor=#FFFFFF;strokeWidth=2;fontSize=12;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
           <mxGeometry x="72" y="895" width="218" height="242" as="geometry" />
         </mxCell>
 
@@ -148,7 +148,7 @@
         </mxCell>
 
         <!-- S3 cylinder -->
-        <mxCell id="s3" value="&lt;b style='color:#27AE60;font-size:15px'&gt;S3&lt;/b&gt;&lt;br/&gt;Blob storage&lt;br/&gt;&lt;br/&gt;media uploads&lt;br/&gt;generated sites&lt;br/&gt;&lt;br/&gt;AWS S3 · Cloudflare R2" style="shape=cylinder3;whiteSpace=wrap;html=1;strokeColor=#27AE60;fillColor=#FFFFFF;strokeWidth=2;fontSize=12;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+        <mxCell id="s3" value="&lt;b style='color:#27AE60;font-size:15px'&gt;Supabase&lt;/b&gt;&lt;br/&gt;Blob storage&lt;br/&gt;&lt;br/&gt;media uploads&lt;br/&gt;generated sites&lt;br/&gt;&lt;br/&gt;Storage" style="shape=cylinder3;whiteSpace=wrap;html=1;strokeColor=#27AE60;fillColor=#FFFFFF;strokeWidth=2;fontSize=12;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
           <mxGeometry x="724" y="895" width="218" height="242" as="geometry" />
         </mxCell>
 
