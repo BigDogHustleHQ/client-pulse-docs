@@ -21,6 +21,21 @@ Client Pulse spans four repos:
 | client-pulse-api | API layer |
 | client-pulse-docs | Documentation (this repo) |
 
+## Environment Ladder
+
+Use these environment terms consistently across Client Pulse docs:
+
+| Env | Where | Purpose |
+|-----|-------|---------|
+| local | localhost | Individual developer loop (`client-pulse-api` on `localhost:4000`, backend service on `localhost:3001`) |
+| development | Railway | Shared, deployed, always-on integration target for frontend, WebSocket service, API, and Integration Hub work |
+| staging | Railway | Production mirror and release-candidate gate |
+| production | Railway | Live service |
+
+Important distinction:
+- `local` means a developer's own machine.
+- `development` means the shared deployed Railway environment. It exists so frontend, WebSocket, API, and Integration Hub work can point at stable services without using someone's laptop or polluting staging.
+
 ## This Repo
 
 - Content is Markdown files organized by topic under `docs/`
