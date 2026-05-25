@@ -11,6 +11,13 @@ Documentation for the ClientPulse platform.
 | [client-pulse-api](https://github.com/BigDogHustleHQ/client-pulse-api) | API layer |
 | [client-pulse-docs](https://github.com/BigDogHustleHQ/client-pulse-docs) | Documentation (this repo) |
 
+## Documentation
+
+| Topic | Description |
+|-------|-------------|
+| [API](docs/api/README.md) | GraphQL API reference — endpoint, environments, schema, and testing |
+| [Architecture](docs/architecture) | System architecture diagrams |
+
 ## Contributing
 
 Add documentation as Markdown files. Keep content organized by topic under clearly named directories.
