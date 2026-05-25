@@ -1,4 +1,4 @@
-# VENDRR — Service Decisions
+# CLIENT PULSE — Service Decisions
 
 Each row maps a functional need to the specific service or tool we've committed to.
 

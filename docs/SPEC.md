@@ -1,12 +1,12 @@
-# Vendrr — Product Spec
+# Client Pulse — Product Spec
 
-> The org and repo names use the `client-pulse` prefix. The product is **Vendrr** everywhere else.
+> The org and repo names use the `client-pulse` prefix. The product is **Client Pulse** everywhere else.
 
 ---
 
-## What is Vendrr?
+## What is Client Pulse?
 
-Vendrr is an AI-driven growth and operations platform for local businesses — restaurants, retail shops, service providers. It gives owners a single dashboard to manage reservations, customer relationships, marketing automations, and third-party integrations through a unified interface backed by an AI agent.
+Client Pulse is an AI-driven growth and operations platform for local businesses — restaurants, retail shops, service providers. It gives owners a single dashboard to manage reservations, customer relationships, marketing automations, and third-party integrations through a unified interface backed by an AI agent.
 
 ---
 
@@ -87,4 +87,4 @@ Key decisions:
 
 ## Architecture Diagram
 
-See [`docs/architecture/vendrr-system-architecture.drawio`](architecture/vendrr-system-architecture.drawio).
+See [`docs/architecture/client-pulse-system-architecture.drawio`](architecture/client-pulse-system-architecture.drawio).

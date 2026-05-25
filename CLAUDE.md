@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Product Context
 
-This repo documents **Vendrr** — an AI-driven growth and operations platform for local businesses. The org and repo names use the "client-pulse" prefix, but the product is called Vendrr throughout all documentation and code.
+This repo documents **Client Pulse** — an AI-driven growth and operations platform for local businesses. The org and repo names use the "client-pulse" prefix, but the product is called Client Pulse throughout all documentation and code.
 
 Load the full product spec at the start of every session:
 
@@ -12,7 +12,7 @@ Load the full product spec at the start of every session:
 
 ## Repo Ecosystem
 
-Vendrr spans four repos:
+Client Pulse spans four repos:
 
 | Repo | Purpose |
 |------|---------|

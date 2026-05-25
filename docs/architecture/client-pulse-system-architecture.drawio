@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mxfile host="app.diagrams.net" modified="2026-05-21T00:00:00.000Z" agent="Claude" version="21.0.0" type="device">
-  <diagram id="vendrr-arch" name="VENDRR Architecture">
+  <diagram id="client-pulse-arch" name="CLIENT PULSE Architecture">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
 
         <!-- Title -->
-        <mxCell id="title" value="VENDRR — System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="title" value="CLIENT PULSE — System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="250" y="15" width="900" height="35" as="geometry" />
         </mxCell>
 
@@ -164,7 +164,7 @@
         </mxCell>
 
         <!-- Footer -->
-        <mxCell id="footer" value="VENDRR Architecture v1.2 · Deployment Topology · CTO Overview" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#888888;" vertex="1" parent="1">
+        <mxCell id="footer" value="CLIENT PULSE Architecture v1.2 · Deployment Topology · CTO Overview" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#888888;" vertex="1" parent="1">
           <mxGeometry x="200" y="1178" width="900" height="25" as="geometry" />
         </mxCell>
 
